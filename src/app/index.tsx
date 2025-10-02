@@ -1,3 +1,4 @@
+import type { MainFABProps, SubActionButtonProps } from '@/types/app.types'
 import { getPosition } from '@/utils/position'
 import { CONSTANTS, FAB_ACTIONS } from '@constants/app.constants'
 import { MaterialIcons } from '@expo/vector-icons'
@@ -21,14 +22,7 @@ function SubActionButton({
   index,
   isOpen,
   onPress,
-}: {
-  icon: string
-  label: string
-  angle: number
-  index: number
-  isOpen: boolean
-  onPress: () => void
-}) {
+}: SubActionButtonProps) {
   const progress = useSharedValue(0)
   const { x, y } = getPosition(angle, CONSTANTS.SUB_ACTION.SPREAD_RADIUS)
   useEffect(() => {
@@ -73,13 +67,7 @@ function SubActionButton({
 }
 
 // Main FAB component
-function MainFAB({
-  isOpen,
-  onPress,
-}: {
-  isOpen: boolean
-  onPress: () => void
-}) {
+function MainFAB({ isOpen, onPress }: MainFABProps) {
   const rotation = useSharedValue(0)
   const scale = useSharedValue(1)
 

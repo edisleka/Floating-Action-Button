@@ -1,3 +1,5 @@
+import type { FABAction } from '@/types/app.types'
+
 // App-wide constants for consistent sizing and styling
 export const CONSTANTS = {
   // Floating Action Button
@@ -27,7 +29,7 @@ export const CONSTANTS = {
 } as const
 
 // Action button configurations
-export const FAB_ACTIONS = [
+export const FAB_ACTIONS: readonly FABAction[] = [
   { icon: 'camera-alt', label: 'Take Photo', color: 'dodgerblue' },
   { icon: 'edit', label: 'Edit', color: 'dodgerblue' },
   { icon: 'mic', label: 'Record Audio', color: 'dodgerblue' },
