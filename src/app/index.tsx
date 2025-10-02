@@ -1,6 +1,6 @@
 import { MaterialIcons } from '@expo/vector-icons'
 import React, { useEffect, useRef, useState } from 'react'
-import { Animated, StyleSheet, TouchableOpacity, View } from 'react-native'
+import { Animated, Pressable, View } from 'react-native'
 
 export default function App() {
   const [open, setOpen] = useState(false)
@@ -40,8 +40,8 @@ export default function App() {
   }, [open])
 
   return (
-    <View style={styles.container}>
-      <View style={styles.overlay}>
+    <View className='flex-1 justify-end items-end p-6 bg-gray-100'>
+      <View className='absolute bottom-6 right-6 w-10 h-10 items-center justify-center'>
         {angles.map((angle, i) => {
           const { x, y } = getPosition(angle)
           const translate = animations[i].translate.interpolate({
@@ -51,87 +51,36 @@ export default function App() {
           return (
             <Animated.View
               key={i}
-              style={[
-                styles.option,
-                {
-                  transform: [
-                    { translateX: Animated.multiply(translate, x) },
-                    { translateY: Animated.multiply(translate, y) },
-                  ],
-                  opacity: animations[i].opacity,
-                },
-              ]}
+              className='absolute w-[50px] h-[50px] rounded-[25px] bg-gray-100 items-center justify-center'
+              style={{
+                transform: [
+                  { translateX: Animated.multiply(translate, x) },
+                  { translateY: Animated.multiply(translate, y) },
+                ],
+                opacity: animations[i].opacity,
+              }}
             >
-              <TouchableOpacity style={styles.optionInner}>
+              <Pressable className='w-[50px] h-[50px] rounded-[25px] bg-white border border-gray-200 shadow-md justify-center items-center'>
                 <MaterialIcons
                   name={icons[i] as any}
                   size={20}
                   color='dodgerblue'
                 />
-              </TouchableOpacity>
+              </Pressable>
             </Animated.View>
           )
         })}
       </View>
-      <TouchableOpacity style={styles.fab} onPress={() => setOpen(!open)}>
+      <Pressable
+        className='w-[60px] h-[60px] rounded-[30px] bg-[dodgerblue] justify-center items-center z-[2]'
+        onPress={() => setOpen(!open)}
+      >
         <MaterialIcons
           name={open ? 'close' : ('add' as any)}
           size={28}
           color='#fff'
         />
-      </TouchableOpacity>
+      </Pressable>
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end',
-    padding: 24,
-    backgroundColor: '#e7e7e7',
-  },
-  fab: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    backgroundColor: 'dodgerblue',
-    justifyContent: 'center',
-    alignItems: 'center',
-    zIndex: 2,
-  },
-  overlay: {
-    position: 'absolute',
-    bottom: 24,
-    right: 24,
-    width: 40,
-    height: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  option: {
-    position: 'absolute',
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    backgroundColor: '#f5f5f5',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  optionInner: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    backgroundColor: '#ffffff',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#ddd',
-    shadowColor: '#000',
-    shadowOffset: { width: 2, height: 3 },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 6,
-  },
-})
