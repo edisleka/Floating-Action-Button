@@ -20,6 +20,7 @@ import Animated, {
 function SubActionButton({
   icon,
   label,
+  color,
   angle,
   index,
   isOpen,
@@ -67,7 +68,7 @@ function SubActionButton({
       style={animatedStyle}
     >
       <Pressable
-        className='w-[50px] h-[50px] rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg justify-center items-center active:scale-90'
+        className='w-[50px] h-[50px] rounded-full bg-white dark:bg-indigo-900 border border-violet-200 dark:border-indigo-500 shadow-lg justify-center items-center active:scale-90'
         onPress={onPress}
         accessibilityLabel={label}
         accessibilityRole='button'
@@ -76,7 +77,7 @@ function SubActionButton({
         <MaterialIcons
           name={icon as any}
           size={CONSTANTS.SUB_ACTION.ICON_SIZE}
-          color='#1e90ff'
+          color={color}
         />
       </Pressable>
     </Animated.View>

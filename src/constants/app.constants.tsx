@@ -29,8 +29,8 @@ export const CONSTANTS = {
 } as const
 
 // Action button configurations
-export const FAB_ACTIONS: readonly FABAction[] = [
-  { icon: 'camera-alt', label: 'Take Photo', color: 'dodgerblue' },
-  { icon: 'edit', label: 'Edit', color: 'dodgerblue' },
-  { icon: 'mic', label: 'Record Audio', color: 'dodgerblue' },
-] as const
+export const FAB_ACTIONS: FABAction[] = [
+  { icon: 'camera-alt', label: 'Take Photo', color: '#8b5cf6' }, // violet-500
+  { icon: 'edit', label: 'Edit', color: '#ec4899' }, // pink-500
+  { icon: 'mic', label: 'Record Audio', color: '#f59e0b' }, // amber-500
+]

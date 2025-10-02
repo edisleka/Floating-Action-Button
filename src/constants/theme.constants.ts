@@ -5,33 +5,40 @@
 export const THEME = {
   colors: {
     primary: {
-      light: '#3b82f6', // blue-500
-      dark: '#2563eb', // blue-600
+      light: '#8b5cf6', // violet-500
+      dark: '#7c3aed', // violet-600
+      accent: '#a78bfa', // violet-400
+    },
+    secondary: {
+      light: '#ec4899', // pink-500
+      dark: '#db2777', // pink-600
     },
     background: {
       light: {
-        from: '#eff6ff', // blue-50
-        to: '#f3f4f6', // gray-100
+        from: '#faf5ff', // violet-50
+        to: '#f5f3ff', // violet-100
       },
       dark: {
-        from: '#111827', // gray-900
-        to: '#1f2937', // gray-800
+        from: '#1e1b4b', // indigo-950
+        to: '#312e81', // indigo-900
       },
     },
     card: {
       light: '#ffffff',
-      dark: '#1f2937', // gray-800
+      dark: '#312e81', // indigo-900
     },
     border: {
-      light: '#e5e7eb', // gray-200
-      dark: '#374151', // gray-700
+      light: '#e9d5ff', // violet-200
+      dark: '#6366f1', // indigo-500
     },
     overlay: {
-      light: 'rgba(0, 0, 0, 0.1)',
-      dark: 'rgba(0, 0, 0, 0.3)',
+      light: 'rgba(139, 92, 246, 0.1)', // violet with transparency
+      dark: 'rgba(0, 0, 0, 0.4)',
     },
     icon: {
-      primary: '#1e90ff', // dodgerblue
+      primary: '#8b5cf6', // violet-500
+      secondary: '#ec4899', // pink-500
+      tertiary: '#f59e0b', // amber-500
       white: '#ffffff',
     },
   },

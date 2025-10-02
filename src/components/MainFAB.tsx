@@ -47,7 +47,7 @@ function MainFAB({ isOpen, onPress }: MainFABProps) {
 
   return (
     <Pressable
-      className='w-[60px] h-[60px] rounded-full bg-blue-500 dark:bg-blue-600 justify-center items-center shadow-xl active:shadow-md'
+      className='w-[60px] h-[60px] rounded-full bg-violet-500 dark:bg-violet-600 justify-center items-center shadow-xl active:shadow-md'
       onPress={handlePress}
       accessibilityLabel={isOpen ? 'Close actions menu' : 'Open actions menu'}
       accessibilityRole='button'

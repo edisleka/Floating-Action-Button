@@ -23,6 +23,7 @@ export interface Position {
 export interface SubActionButtonProps {
   icon: string
   label: string
+  color: string
   angle: number
   index: number
   isOpen: boolean

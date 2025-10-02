@@ -24,11 +24,11 @@ export default function App() {
   const fabRight = Math.max(right, CONSTANTS.SPACING.EDGE_OFFSET)
 
   return (
-    <View className='flex-1 bg-gradient-to-b from-blue-50 to-gray-100 dark:from-gray-900 dark:to-gray-800'>
+    <View className='flex-1 bg-gradient-to-b from-violet-50 to-violet-100 dark:from-indigo-950 dark:to-indigo-900'>
       {/* Backdrop overlay - closes FAB when tapped */}
       {isOpen && (
         <Pressable
-          className='absolute inset-0 bg-black/10 dark:bg-black/30'
+          className='absolute inset-0 bg-violet-500/10 dark:bg-black/40'
           onPress={toggle}
           accessibilityLabel='Close actions menu'
           accessibilityRole='button'
@@ -50,6 +50,7 @@ export default function App() {
               key={action.icon}
               icon={action.icon}
               label={action.label}
+              color={action.color}
               angle={CONSTANTS.SUB_ACTION.ANGLES[index]}
               index={index}
               isOpen={isOpen}
