@@ -23,15 +23,27 @@ import Animated, {
 function MainFAB({ isOpen, onPress }: MainFABProps) {
   const rotation = useSharedValue(0)
   const scale = useSharedValue(1)
+  const iconScale = useSharedValue(1)
 
   useEffect(() => {
     rotation.value = withTiming(isOpen ? 45 : 0, {
       duration: CONSTANTS.ANIMATION.OPEN_DURATION,
     })
-  }, [isOpen, rotation])
+
+    // Pulse the icon when opening
+    if (isOpen) {
+      iconScale.value = withSpring(1.2, { damping: 8, stiffness: 200 }, () => {
+        iconScale.value = withSpring(1, { damping: 8, stiffness: 200 })
+      })
+    }
+  }, [isOpen, rotation, iconScale])
 
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [{ rotate: `${rotation.value}deg` }, { scale: scale.value }],
+  }))
+
+  const iconAnimatedStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: iconScale.value }],
   }))
 
   const handlePress = () => {
@@ -47,7 +59,14 @@ function MainFAB({ isOpen, onPress }: MainFABProps) {
 
   return (
     <Pressable
-      className='w-[60px] h-[60px] rounded-full bg-violet-500 dark:bg-violet-600 justify-center items-center shadow-xl active:shadow-md'
+      className='w-[70px] h-[70px] rounded-full bg-gradient-to-br from-violet-500 to-purple-600 dark:from-violet-600 dark:to-purple-700 justify-center items-center shadow-2xl border-4 border-white/90 dark:border-violet-300/20'
+      style={{
+        elevation: 12,
+        shadowColor: '#8b5cf6',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.3,
+        shadowRadius: 8,
+      }}
       onPress={handlePress}
       accessibilityLabel={isOpen ? 'Close actions menu' : 'Open actions menu'}
       accessibilityRole='button'
@@ -55,11 +74,13 @@ function MainFAB({ isOpen, onPress }: MainFABProps) {
       accessibilityHint='Press to toggle quick actions'
     >
       <Animated.View style={animatedStyle}>
-        <MaterialIcons
-          name={isOpen ? 'close' : 'add'}
-          size={CONSTANTS.FAB.ICON_SIZE}
-          color='#fff'
-        />
+        <Animated.View style={iconAnimatedStyle}>
+          <MaterialIcons
+            name={isOpen ? 'close' : 'add'}
+            size={CONSTANTS.FAB.ICON_SIZE}
+            color='#fff'
+          />
+        </Animated.View>
       </Animated.View>
     </Pressable>
   )

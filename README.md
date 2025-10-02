@@ -118,16 +118,17 @@ Edit `src/constants/app.constants.tsx`:
 
 ```typescript
 export const FAB_ACTIONS = [
-  { icon: 'camera-alt', label: 'Take Photo', color: 'dodgerblue' },
-  { icon: 'edit', label: 'Edit', color: 'dodgerblue' },
-  { icon: 'mic', label: 'Record Audio', color: 'dodgerblue' },
-  { icon: 'share', label: 'Share', color: 'dodgerblue' }, // Add new action
+  { icon: 'photo-camera', label: 'Take Photo', color: '#8b5cf6' }, // violet-500
+  { icon: 'favorite', label: 'Add to Favorites', color: '#ef4444' }, // red-500
+  { icon: 'share', label: 'Share', color: '#06b6d4' }, // cyan-500
+  { icon: 'videocam', label: 'Record Video', color: '#f59e0b' }, // amber-500
+  { icon: 'cloud-upload', label: 'Upload', color: '#10b981' }, // Add new action
 ]
 
 // Update angles array to match number of actions
 export const CONSTANTS = {
   SUB_ACTION: {
-    ANGLES: [90, 120, 150, 180], // 4 actions now
+    ANGLES: [60, 90, 120, 150, 180], // 5 actions now
     // ...
   },
   // ...

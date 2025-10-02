@@ -4,17 +4,17 @@ import type { FABAction } from '@/types/app.types'
 export const CONSTANTS = {
   // Floating Action Button
   FAB: {
-    SIZE: 60,
-    ICON_SIZE: 28,
-    RADIUS: 30,
+    SIZE: 70, // Increased from 60 for better visibility
+    ICON_SIZE: 32, // Increased from 28 for better visibility
+    RADIUS: 35,
   },
   // Sub-action buttons
   SUB_ACTION: {
     SIZE: 50,
-    ICON_SIZE: 20,
+    ICON_SIZE: 22, // Increased from 20 for better visibility
     RADIUS: 25,
-    SPREAD_RADIUS: 100, // Distance from main FAB
-    ANGLES: [90, 135, 180], // Angles in degrees
+    SPREAD_RADIUS: 110, // Increased from 100 for more space
+    ANGLES: [90, 135, 180], // 3 actions with even spacing
   },
   // Animation timing
   ANIMATION: {
@@ -30,7 +30,7 @@ export const CONSTANTS = {
 
 // Action button configurations
 export const FAB_ACTIONS: FABAction[] = [
-  { icon: 'camera-alt', label: 'Take Photo', color: '#8b5cf6' }, // violet-500
-  { icon: 'edit', label: 'Edit', color: '#ec4899' }, // pink-500
-  { icon: 'mic', label: 'Record Audio', color: '#f59e0b' }, // amber-500
+  { icon: 'photo-camera', label: 'Take Photo', color: '#8b5cf6' }, // violet-500
+  { icon: 'favorite', label: 'Add to Favorites', color: '#ef4444' }, // red-500
+  { icon: 'share', label: 'Share', color: '#06b6d4' }, // cyan-500
 ]

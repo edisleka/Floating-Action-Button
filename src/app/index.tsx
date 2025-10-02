@@ -37,27 +37,25 @@ export default function App() {
 
       {/* FAB Container - positioned in bottom-right corner */}
       <View
-        className='absolute'
+        className='absolute w-[70px] h-[70px]'
         style={{
           bottom: fabBottom,
           right: fabRight,
         }}
       >
-        {/* Sub-action buttons container */}
-        <View className='absolute inset-0 items-center justify-center'>
-          {FAB_ACTIONS.map((action, index) => (
-            <SubActionButton
-              key={action.icon}
-              icon={action.icon}
-              label={action.label}
-              color={action.color}
-              angle={CONSTANTS.SUB_ACTION.ANGLES[index]}
-              index={index}
-              isOpen={isOpen}
-              onPress={() => handleAction(action.label)}
-            />
-          ))}
-        </View>
+        {/* Sub-action buttons - positioned relative to center of FAB */}
+        {FAB_ACTIONS.map((action, index) => (
+          <SubActionButton
+            key={action.icon}
+            icon={action.icon}
+            label={action.label}
+            color={action.color}
+            angle={CONSTANTS.SUB_ACTION.ANGLES[index]}
+            index={index}
+            isOpen={isOpen}
+            onPress={() => handleAction(action.label)}
+          />
+        ))}
 
         {/* Main FAB button */}
         <MainFAB isOpen={isOpen} onPress={toggle} />

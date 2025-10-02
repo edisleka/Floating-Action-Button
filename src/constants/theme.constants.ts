@@ -37,8 +37,9 @@ export const THEME = {
     },
     icon: {
       primary: '#8b5cf6', // violet-500
-      secondary: '#ec4899', // pink-500
-      tertiary: '#f59e0b', // amber-500
+      secondary: '#ef4444', // red-500
+      tertiary: '#06b6d4', // cyan-500
+      quaternary: '#f59e0b', // amber-500
       white: '#ffffff',
     },
   },

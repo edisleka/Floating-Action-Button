@@ -64,11 +64,11 @@ function SubActionButton({
 
   return (
     <Animated.View
-      className='absolute w-[50px] h-[50px] items-center justify-center'
+      className='absolute w-[50px] h-[50px] items-center justify-center top-[10px] left-[10px]'
       style={animatedStyle}
     >
       <Pressable
-        className='w-[50px] h-[50px] rounded-full bg-white dark:bg-indigo-900 border border-violet-200 dark:border-indigo-500 shadow-lg justify-center items-center active:scale-90'
+        className='w-[50px] h-[50px] rounded-full bg-white dark:bg-indigo-900 border-2 border-violet-100 dark:border-indigo-600 shadow-xl justify-center items-center active:scale-90'
         onPress={onPress}
         accessibilityLabel={label}
         accessibilityRole='button'
