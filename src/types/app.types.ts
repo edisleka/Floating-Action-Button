@@ -51,3 +51,14 @@ export interface SpringConfig {
 export interface TimingConfig {
   duration: number
 }
+
+/**
+ * Return type for the useFAB hook
+ */
+export interface UseFABReturn {
+  isOpen: boolean
+  toggle: () => void
+  close: () => void
+  open: () => void
+  handleAction: (label: string, callback?: () => void) => void
+}
