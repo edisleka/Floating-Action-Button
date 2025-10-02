@@ -1,9 +1,13 @@
 import { MaterialIcons } from '@expo/vector-icons'
 import React, { useEffect, useRef, useState } from 'react'
 import { Animated, Pressable, View } from 'react-native'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 export default function App() {
   const [open, setOpen] = useState(false)
+
+  const { bottom } = useSafeAreaInsets()
+
   const radius = 100
   const angles = [90, 135, 180]
   const icons = ['camera-alt', 'edit', 'mic']
@@ -40,8 +44,14 @@ export default function App() {
   }, [open])
 
   return (
-    <View className='flex-1 justify-end items-end p-6 bg-gray-100'>
-      <View className='absolute bottom-6 right-6 w-10 h-10 items-center justify-center'>
+    <View
+      className='flex-1 justify-end items-end bg-gray-100'
+      style={{ paddingBottom: bottom }}
+    >
+      <View
+        className='absolute w-10 h-10 items-center justify-center bg-red-500'
+        style={{ bottom: bottom + 10, right: bottom + 10 }}
+      >
         {angles.map((angle, i) => {
           const { x, y } = getPosition(angle)
           const translate = animations[i].translate.interpolate({
@@ -73,6 +83,7 @@ export default function App() {
       </View>
       <Pressable
         className='w-[60px] h-[60px] rounded-[30px] bg-[dodgerblue] justify-center items-center z-[2]'
+        style={{ right: bottom }}
         onPress={() => setOpen(!open)}
       >
         <MaterialIcons
